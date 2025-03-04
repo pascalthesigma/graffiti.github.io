@@ -226,6 +226,7 @@ section {
     display: flex;
     gap: var(--spacing-sm);
     margin-top: var(--spacing-md);
+    justify-content: center;
 }
 
 /* === HEADER & NAVIGATION === */
@@ -693,7 +694,7 @@ nav ul li a.disabled::after {
     flex-wrap: wrap;
     justify-content: center;
     gap: var(--spacing-md);
-    margin-top: var(--spacing-md);
+    margin-top: var (--spacing-md);
 }
 
 .social-btn {
@@ -942,6 +943,7 @@ footer {
     .cta-buttons {
         flex-direction: column;
         gap: var(--spacing-sm);
+        align-items: center;
     }
     
     .footer-bottom {
@@ -1542,4 +1544,667 @@ footer {
     .video-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Fix header blocking content issue */
+.page-banner {
+    padding-top: 180px; /* Increased from 150px to accommodate fixed header */
+    padding-bottom: 80px;
+}
+
+/* Fix oversized images in about page */
+.mission-image img,
+.difference-image img,
+.badge-image img,
+.join-image img {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px; /* Limit the height to prevent overly large images */
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.team-member .team-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-height: 200px; /* Limit team member image height */
+}
+
+/* Additional spacing for about page sections */
+.about-mission, 
+.about-values, 
+.about-difference, 
+.badge-section, 
+.join-section {
+    padding: 60px 0;
+}
+
+/* Enhanced Values Section */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.value-card {
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.value-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-md);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+.value-icon i {
+    font-size: 2.5rem;
+    color: white;
+}
+
+.value-card h3 {
+    color: white;
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.4rem;
+}
+
+.value-card p {
+    color: var(--gray-light);
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Badge Caption Centered */
+.badge-caption {
+    font-size: 0.9rem;
+    color: var(--gray-light);
+    font-style: italic;
+    text-align: center;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+/* Join Section Text Color Fix */
+.join-section {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.join-section h2,
+.join-section h3,
+.join-section p {
+    color: var(--text-dark);
+}
+
+.join-section h2 span {
+    color: var(--primary);
+}
+
+/* Improved Process List */
+.process-list {
+    counter-reset: process;
+    margin: var(--spacing-md) 0;
+    padding-left: 0;
+}
+
+.process-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.process-list li:last-child {
+    border-bottom: none;
+}
+
+.process-number {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: var(--spacing-md);
+    flex-shrink: 0;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(114, 137, 218, 0.3);
+}
+
+.process-detail {
+    flex: 1;
+}
+
+.process-detail h3 {
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+    font-size: 1.3rem;
+}
+
+.process-detail p {
+    color: var(--text-dark);
+    opacity: 0.8;
+}
+
+/* Fix About Page Content Alignment */
+.about-content, 
+.mission-content, 
+.difference-content, 
+.badge-content, 
+.join-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-text, 
+.mission-text, 
+.difference-text, 
+.badge-text, 
+.join-text {
+    padding: var(--spacing-md);
+}
+
+.about-image, 
+.mission-image, 
+.difference-image, 
+.badge-image, 
+.join-image {
+    text-align: center;
+    padding: var(--spacing-md);
+}
+
+.mission-image img, 
+.difference-image img, 
+.badge-image img, 
+.join-image img {
+    max-width: 90%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+/* Dark Section Text Enhancement */
+.dark-section h2 {
+    margin-bottom: var(--spacing-lg);
+    color: white;
+    text-align: center;
+}
+
+.dark-section .container > p {
+    text-align: center;
+    color: var(--gray-light);
+    max-width: 800px;
+    margin: 0 auto var(--spacing-lg);
+}
+
+/* Feature List Enhancement */
+.feature-list {
+    margin: var(--spacing-md) 0;
+    padding-left: 0;
+}
+
+.feature-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-sm);
+    padding: 0.5rem 0;
+}
+
+.feature-list li i {
+    color: var(--primary);
+    margin-right: 15px;
+    font-size: 1.2rem;
+    margin-top: 0.2rem;
+}
+
+.feature-list li strong {
+    margin-right: 5px;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+/* Fix Warning Box */
+.warning-box {
+    background-color: rgba(255, 87, 87, 0.1);
+    border-left: 4px solid #ff5757;
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    display: flex;
+    gap: var(--spacing-sm);
+    margin: var(--spacing-md) 0;
+    align-items: flex-start;
+}
+
+.warning-icon {
+    font-size: 2rem;
+    color: #ff5757;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 5px;
+    flex-shrink: 0;
+}
+
+.warning-content h3 {
+    color: #ff5757;
+    margin-bottom: var(--spacing-xs);
+}
+
+.warning-content p,
+.warning-content ul li {
+    color: var(--text-dark) !important; /* Force black text color */
+}
+
+/* Override previous styles to ensure text is dark */
+.badge-section .warning-content p,
+.badge-section .warning-content ul li {
+    color: #2f3640 !important;
+}
+
+/* Fix team section layout */
+.about-team {
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin: var(--spacing-lg) auto;
+    max-width: 1200px;
+}
+
+.team-member.leadership {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.staff-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+/* Mobile Responsiveness Improvements */
+@media (max-width: 768px) {
+    .mission-content, 
+    .difference-content, 
+    .badge-content, 
+    .join-content {
+        grid-template-columns: 1fr;
+    }
+
+    .value-card {
+        padding: var(--spacing-sm);
+    }
+
+    .value-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .value-icon i {
+        font-size: 1.8rem;
+    }
+
+    .process-number {
+        width: 40px;
+        height: 40px;
+        margin-right: var(--spacing-sm);
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .warning-box {
+        flex-direction: column;
+        padding: var(--spacing-sm);
+    }
+}
+
+/* Fix text color issues in About page */
+.about-mission p,
+.about-difference p,
+.join-section p,
+.about-difference .feature-list li,
+.about-team .team-bio {
+    color: var(--text-dark);
+}
+
+/* Fix dark sections text colors */
+.dark-section {
+    color: var(--text-light);
+}
+
+.dark-section p,
+.dark-section li {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.dark-section .feature-list li strong {
+    color: white;
+}
+
+/* Ensure warning box has proper text color */
+.warning-box {
+    background-color: rgba(255, 87, 87, 0.1);
+    border-left: 4px solid #ff5757;
+}
+
+.warning-content p,
+.warning-content ul li {
+    color: var(--text-dark) !important;
+}
+
+/* Badge caption fix */
+.badge-caption {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Team member text fixes */
+.team-member.leadership h3,
+.team-member.leadership .team-role,
+.team-member.staff h3 {
+    color: white;
+}
+
+.team-member.leadership .team-bio {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Fix process list text color */
+.process-detail h3,
+.process-detail p {
+    color: var(--text-dark);
+}
+
+/* FAQ items in dark sections */
+.dark-section .faq-question h3 {
+    color: white;
+}
+
+.dark-section .faq-answer p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* CTA section text fix */
+.cta-section p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Fix headers in light sections that might be inheriting dark colors */
+.about-mission h2,
+.about-difference h2,
+.join-section h2 {
+    color: var(--text-dark);
+}
+
+.about-mission h2 span,
+.about-difference h2 span,
+.join-section h2 span {
+    color: var(--primary);
+}
+
+/* Fix for dark text color on dark background issues */
+.about-values .value-card h3,
+.about-values .value-card p,
+.badge-section h2,
+.badge-section h3,
+.badge-section p,
+.dark-section h2,
+.dark-section h3,
+.dark-section p {
+    color: white !important;
+}
+
+/* Make sure process list items are properly centered on mobile */
+.process-list {
+    margin: var(--spacing-md) auto;
+    padding-left: 0;
+    max-width: 650px;
+}
+
+.process-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    text-align: left; /* Ensure text is aligned left */
+}
+
+/* Fix for badge section text */
+.badge-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.badge-text {
+    color: white;
+}
+
+.badge-text h3 {
+    color: white;
+    margin-bottom: var(--spacing-sm);
+}
+
+.badge-text p {
+    color: white;
+    margin-bottom: var(--spacing-md);
+}
+
+.badge-image {
+    text-align: center;
+}
+
+.badge-image img {
+    max-width: 90%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+}
+
+.badge-caption {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-style: italic;
+    text-align: center;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+/* Fix value cards text colors and layout */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin: var(--spacing-md) auto;
+    max-width: 1200px;
+}
+
+.value-card {
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.value-card h3 {
+    color: white !important;
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.4rem;
+}
+
+.value-card p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Add responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .badge-content,
+    .mission-content, 
+    .difference-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .process-list li {
+        flex-direction: column;
+    }
+    
+    .process-number {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+    
+    .process-detail {
+        text-align: center;
+    }
+    
+    .process-detail h3,
+    .process-detail p {
+        text-align: center;
+    }
+}
+
+/* Fix core values section */
+.about-values {
+    background-color: var(--bg-dark);
+    padding: var(--spacing-xl) 0;
+    color: white;
+}
+
+.about-values h2,
+.about-values h3 {
+    color: white;
+}
+
+.value-card {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.value-card h3 {
+    color: white;
+}
+
+.value-card p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Fix process list section */
+.process-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.process-list li {
+    text-align: left;
+}
+
+.process-detail h3,
+.process-detail p {
+    color: var(--text-dark);
+    text-align: left;
+}
+
+/* Fix badge section */
+.badge-section {
+    background-color: var(--bg-dark);
+    color: white;
+}
+
+.badge-section h2,
+.badge-section h3 {
+    color: white;
+}
+
+.badge-section p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.badge-section .warning-box {
+    background-color: rgba(255, 87, 87, 0.1);
+}
+
+.badge-section .warning-content h3 {
+    color: #ff5757;
+}
+
+.badge-section .warning-content p,
+.badge-section .warning-content ul li {
+    color: var(--text-dark);
+}
+
+/* Fix join section */
+.join-section {
+    background-color: var(--bg-light);
+}
+
+.join-section h2,
+.join-section h3,
+.join-section p {
+    color: var(--text-dark);
+}
+
+.join-section .process-list li {
+    color: var(--text-dark);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }

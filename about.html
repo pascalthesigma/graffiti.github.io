@@ -10,7 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="icon" href="images/graffiti.webp" type="image/webp">
-    <link rel="shortcut icon" href="images/graffiti.webp" type="image/webp">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
     <header>
@@ -36,382 +37,157 @@
         </div>
     </header>
 
-    <section class="page-banner">
-        <div class="container">
-            <h1>About <span>Graffiti Program</span></h1>
-            <p>Learn about our mission, vision, and how we support creators</p>
+    <!-- Hero Section -->
+    <section class="about-hero parallax-section">
+        <div class="hero-content">
+            <h1 class="slide-up">Our <span class="highlight">Story</span></h1>
+            <p class="slide-up-delay">Empowering creators to reach their full potential in the Gorilla Tag community</p>
+            <div class="stats-container">
+                <div class="stat fade-in">
+                    <span class="counter" data-target="3000">0</span>
+                    <span>Discord Members</span>
+                </div>
+                <div class="stat fade-in">
+                    <span class="counter" data-target="50">0</span>
+                    <span>Active Creators</span>
+                </div>
+                <div class="stat fade-in">
+                    <span class="counter" data-target="100000">0</span>
+                    <span>Combined Followers</span>
+                </div>
+            </div>
         </div>
+        <div class="hero-overlay"></div>
     </section>
 
-    <section class="about-mission">
+    <!-- Mission Section -->
+    <section class="mission-section">
         <div class="container">
             <div class="mission-content">
-                <div class="mission-text">
-                    <h2>Our <span>Mission</span></h2>
-                    <p>The Graffiti Program was created to break down barriers and give smaller content creators the recognition they deserve. Unlike more restrictive programs, we focus on raw talent, creativity, and potential rather than existing follower counts.</p>
-                    <p>As former small creators ourselves, we understand the challenges of growing a channel and building an audience. That's why we've built a program that prioritizes genuine talent and dedication over arbitrary metrics.</p>
-                    <p>Through our community-driven approach, we're creating a space where emerging creators can thrive, collaborate, and grow together.</p>
-                </div>
-                <div class="mission-image">
-                    <img src="images/graffiti.webp" alt="Graffiti Program Mission">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="about-history">
-        <div class="container">
-            <h2>Our <span>Story</span></h2>
-            <div class="history-timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>2023</h3>
-                        <h4>The Beginning</h4>
-                        <p>After observing the limitations and barriers in Gorilla Tag's Finger Painter program, our team decided to create a more inclusive platform for smaller creators.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>June 2023</h4>
-                        <h4>Foundation</h4>
-                        <p>Under the leadership of Kooper and Garrison, with Pascal as Head Staff, we established the core principles and structure of the Graffiti Program.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>July 2023</h3>
-                        <h4>Team Assembly</h4>
-                        <p>Our dedicated staff team was formed, including Javaa, GIDDYGT, HarveyGT, Maybe_gtag, MVPRINCE, Nicebot, and Lyairr, each bringing unique expertise to support our creators.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Today</h3>
-                        <h4>Growing Community</h4>
-                        <p>The Graffiti Program continues to expand, providing opportunities and support to deserving content creators, emphasizing quality and creativity over follower count.</p>
+                <div class="mission-text fade-in">
+                    <h2>Our <span class="highlight">Mission</span></h2>
+                    <p>The Graffiti Program exists to discover, support, and promote talented content creators in the Gorilla Tag community. We believe that great content deserves recognition, regardless of follower count.</p>
+                    <div class="mission-cards">
+                        <div class="mission-card slide-up">
+                            <i class="fas fa-users"></i>
+                            <h3>Community First</h3>
+                            <p>Building a supportive network of creators</p>
+                        </div>
+                        <div class="mission-card slide-up">
+                            <i class="fas fa-star"></i>
+                            <h3>Quality Content</h3>
+                            <p>Promoting excellence in content creation</p>
+                        </div>
+                        <div class="mission-card slide-up">
+                            <i class="fas fa-rocket"></i>
+                            <h3>Creator Growth</h3>
+                            <p>Supporting continuous improvement</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="about-values">
+    <!-- Team Section -->
+    <section class="team-section parallax-section">
         <div class="container">
-            <h2>Our <span>Values</span></h2>
+            <h2 class="slide-up">Meet Our <span class="highlight">Team</span></h2>
+            <div class="team-grid">
+                <!-- Leadership -->
+                <div class="team-member fade-in">
+                    <div class="member-card">
+                        <div class="card-front">
+                            <img src="images/graffiti.webp" alt="Kooper">
+                            <h3>Kooper</h3>
+                            <span>Owner</span>
+                        </div>
+                        <div class="card-back">
+                            <p>Program founder and community leader</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href="#"><i class="fab fa-discord"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member fade-in">
+                    <div class="member-card">
+                        <div class="card-front">
+                            <img src="images/graffiti.webp" alt="garrison">
+                            <h3>garrison</h3>
+                            <span>Co-Owner</span>
+                        </div>
+                        <div class="card-back">
+                            <p>Strategic development and growth</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href="#"><i class="fab fa-discord"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member fade-in">
+                    <div class="member-card">
+                        <div class="card-front">
+                            <img src="images/graffiti.webp" alt="Pascal">
+                            <h3>Pascal</h3>
+                            <span>Lead Developer</span>
+                        </div>
+                        <div class="card-back">
+                            <p>Technical infrastructure and development</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fab fa-discord"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <h2 class="slide-up">Our <span class="highlight">Values</span></h2>
             <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Community</h3>
-                    <p>We believe in the power of community and collaborative growth. By bringing creators together, we foster an environment where everyone can learn, share, and thrive.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3>Creativity</h3>
-                    <p>We celebrate unique perspectives and innovative approaches to content creation. Original thinking and artistic expression are at the heart of what we do.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Inclusivity</h3>
-                    <p>We welcome creators from all backgrounds, cultures, and experience levels. Diversity strengthens our community and enriches the content we create.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <h3>Quality</h3>
-                    <p>We encourage our members to strive for excellence in their craft, focusing on continuous improvement and dedication to their unique vision.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <h3>Support</h3>
-                    <p>We provide resources, guidance, and a support network to help creators overcome challenges and reach their full potential.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-heartbeat"></i>
-                    </div>
+                <div class="value-card fade-in">
+                    <i class="fas fa-heart"></i>
                     <h3>Passion</h3>
-                    <p>We believe that true creativity comes from passion. We look for creators who are genuinely dedicated to their craft and community.</p>
+                    <p>Creating content with dedication and love</p>
+                </div>
+                <div class="value-card fade-in">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Community</h3>
+                    <p>Supporting each other's growth journey</p>
+                </div>
+                <div class="value-card fade-in">
+                    <i class="fas fa-gem"></i>
+                    <h3>Quality</h3>
+                    <p>Maintaining high standards in all we do</p>
+                </div>
+                <div class="value-card fade-in">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Innovation</h3>
+                    <p>Pushing creative boundaries forward</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="about-benefits">
+    <!-- Join Section -->
+    <section class="join-section parallax-section">
         <div class="container">
-            <div class="benefits-content">
-                <div class="benefits-text">
-                    <h2>Benefits of <span>Joining</span></h2>
-                    <ul class="benefits-list">
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h3>Community Support</h3>
-                                <p>Join a network of like-minded creators who understand your journey and can provide feedback, collaboration opportunities, and moral support.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h3>Increased Exposure</h3>
-                                <p>Get featured on our website, social media channels, and community events to reach a wider audience.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h3>Professional Growth</h3>
-                                <p>Access exclusive workshops, tutorials, and mentorship opportunities to improve your content creation skills.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h3>Collaboration Opportunities</h3>
-                                <p>Connect with other creators for joint projects that can help grow your audience and expand your creative horizons.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h3>Resource Access</h3>
-                                <p>Get access to tools, templates, and resources that can elevate your content quality and streamline your workflow.</p>
-                            </div>
-                        </li>
-                    </ul>
+            <div class="join-content fade-in">
+                <h2>Ready to <span class="highlight">Join Us</span>?</h2>
+                <p>Take the first step towards growing your creative journey</p>
+                <div class="cta-buttons">
+                    <a href="apply.html" class="btn primary-btn">Apply Now</a>
+                    <a href="contact.html" class="btn secondary-btn">Contact Us</a>
                 </div>
-                <div class="benefits-image">
-                    <img src="images/about-benefits.jpg" alt="Program Benefits">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="about-team">
-    <div class="container">
-        <h2>Our <span>Leadership</span></h2>
-        <div class="team-grid">
-            <!-- Leadership Row -->
-            <div class="team-member leadership">
-                <div class="team-img">
-                    <img src="images/team/kooper.webp" alt="Kooper">
-                </div>
-                <h3>Kooper</h3>
-                <p class="team-role">Owner</p>
-                <p class="team-bio">Program founder and visionary, leading our mission to support emerging creators.</p>
-                <div class="team-social">
-                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
-                </div>
-            </div>
-
-            <div class="team-member leadership">
-                <div class="team-img">
-                    <img src="images/team/garrison.webp" alt="Garrison">
-                </div>
-                <h3>Garrison</h3>
-                <p class="team-role">Co-Owner</p>
-                <p class="team-bio">Co-founder and strategic leader, helping shape the program's inclusive approach.</p>
-                <div class="team-social">
-                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
-                </div>
-            </div>
-
-            <div class="team-member leadership">
-                <div class="team-img">
-                    <img src="images/graffiti.webp" alt="Pascal">
-                </div>
-                <h3>Pascal</h3>
-                <p class="team-role">Head Staff</p>
-                <p class="team-bio">Overseeing staff operations and community management.</p>
-                <div class="team-social">
-                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <h2 class="staff-heading">Our <span>Staff Team</span></h2>
-        <div class="team-grid staff-grid">
-            <!-- Staff Row -->
-            <div class="team-member staff">
-                <div class="team-img">
-                    <img src="images/graffiti.webp" alt="Javaa">
-                </div>
-                <h3>Javaa</h3>
-                <p class="team-role">Staff</p>
-            </div>
-
-            <div class="team-member staff">
-                <div class="team-img">
-                    <img src="images/graffiti.webp" alt="GIDDYGT">
-                </div>
-                <h3>GIDDYGT</h3>
-                <p class="team-role">Staff</p>
-            </div>
-
-            <div class="team-member staff">
-                <div class="team-img">
-                    <img src="images/graffiti.webp" alt="HarveyGT">
-                </div>
-                <h3>HarveyGT</h3>
-                <p class="team-role">Staff</p>
-            </div>
-
-            <div class="team-member staff">
-                <div class="team-img">
-                    <img src="images/graffiti.webp" alt="Maybe_gtag">
-                </div>
-                <h3>Maybe_gtag</h3>
-                <p class="team-role">Staff</p>
-            </div>
-
-            <div class="team-member staff">
-                <div class="team-img">
-                    <img src="images/graffiti.webp" alt="MVPRINCE">
-                </div>
-                <h3>MVPRINCE</h3>
-                <p class="team-role">Staff</p>
-            </div>
-
-            <div class="team-member staff">
-                <div class="team-img">
-                    <img src="images/graffiti.webp" alt="Nicebot">
-                </div>
-                <h3>Nicebot</h3>
-                <p class="team-role">Staff</p>
-            </div>
-
-            <div class="team-member staff">
-                <div class="team-img">
-                    <img src="images/graffiti.webp" alt="Lyairr">
-                </div>
-                <h3>Lyairr</h3>
-                <p class="team-role">Staff</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <section class="about-faq">
-        <div class="container">
-            <h2>Frequently Asked <span>Questions</span></h2>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>How can I join the Graffiti Program?</h3>
-                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>To join the Graffiti Program, you need to submit an application through our website. We review applications on a quarterly basis and select creators based on their content quality, uniqueness, and potential for growth.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>What kind of creators are you looking for?</h3>
-                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We welcome creators from all niches and platforms, including YouTube, Twitch, TikTok, and more. We value original content, consistency, passion, and a genuine desire to grow and contribute to the community.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Is there a minimum follower requirement?</h3>
-                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>No, we don't have strict follower requirements. The Graffiti Program is specifically designed to support smaller creators with potential. We evaluate applications based on content quality and creator commitment rather than audience size.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>How long can I stay in the program?</h3>
-                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>There is no set time limit for participation. As long as you remain active in the community and continue creating content, you can remain a member. We do conduct periodic reviews to ensure all members are actively participating.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Does the program cost anything to join?</h3>
-                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>The Graffiti Program is completely free to join. We believe in removing barriers to entry for talented creators, not adding them.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>What is the relationship with Gorilla AG?</h3>
-                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>The Graffiti Program operates as an initiative within Gorilla AG, focusing on discovering and nurturing emerging creative talent within the broader community.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>How are you different from other creator programs?</h3>
-                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Unlike other programs that might focus heavily on metrics or existing audience size, we evaluate creators based on their potential, creativity, and dedication. We believe that great content deserves recognition, regardless of current follower count.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>How long has the program been running?</h3>
-                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>The Graffiti Program was founded in mid-2023 as a response to the need for a more inclusive creator support system. While we're a young program, our team brings together extensive experience in content creation and community building.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Who runs the Graffiti Program?</h3>
-                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>The program is led by Kooper (Owner) and Garrison (Co-Owner), with Pascal serving as Head Staff. Our dedicated staff team includes Javaa, GIDDYGT, HarveyGT, Maybe_gtag, MVPRINCE, Nicebot, and Lyairr, who work together to support our community members.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>What types of creators do you accept?</h3>
-                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We accept creators who focus on Gorilla Tag content across YouTube (long-form videos and Shorts), and TikTok. Your content must be original and focused on the Gorilla Tag community.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="join-us">
-        <div class="container">
-            <div class="join-content">
-                <h2>Ready to <span>Get Started</span>?</h2>
-                <p>Apply to become part of our creative community today</p>
-                <a href="apply.html" class="btn primary-btn">Apply Now</a>
             </div>
         </div>
     </section>
@@ -468,34 +244,98 @@
 
     <script src="js/script.js"></script>
     <script>
-        // FAQ Toggle Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const faqItems = document.querySelectorAll('.faq-item');
-            
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
+        // Initialize GSAP
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Parallax Effect
+        document.querySelectorAll('.parallax-section').forEach(section => {
+            gsap.to(section, {
+                backgroundPositionY: "50%",
+                ease: "none",
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true
+                }
+            });
+        });
+
+        // Slide Up Animation
+        document.querySelectorAll('.slide-up').forEach(elem => {
+            gsap.from(elem, {
+                y: 100,
+                opacity: 0,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: elem,
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+        });
+
+        // Fade In Animation
+        document.querySelectorAll('.fade-in').forEach(elem => {
+            gsap.from(elem, {
+                opacity: 0,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: elem,
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+        });
+
+        // Counter Animation
+        document.querySelectorAll('.counter').forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            const duration = 2000;
+            let start;
+
+            function updateCounter(timestamp) {
+                if (!start) start = timestamp;
+                const progress = timestamp - start;
+                const percentage = Math.min(progress / duration, 1);
                 
-                question.addEventListener('click', () => {
-                    // Toggle active class
-                    item.classList.toggle('active');
-                    
-                    // Update toggle icon
-                    const icon = item.querySelector('.faq-toggle i');
-                    if (item.classList.contains('active')) {
-                        icon.classList.remove('fa-plus');
-                        icon.classList.add('fa-minus');
-                    } else {
-                        icon.classList.remove('fa-minus');
-                        icon.classList.add('fa-plus');
-                    }
-                    
-                    // Toggle visibility of answer
-                    const answer = item.querySelector('.faq-answer');
-                    if (item.classList.contains('active')) {
-                        answer.style.maxHeight = answer.scrollHeight + "px";
-                    } else {
-                        answer.style.maxHeight = "0";
-                    }
+                counter.textContent = Math.floor(target * percentage).toLocaleString();
+                
+                if (progress < duration) {
+                    requestAnimationFrame(updateCounter);
+                }
+            }
+
+            ScrollTrigger.create({
+                trigger: counter,
+                start: "top 80%",
+                onEnter: () => requestAnimationFrame(updateCounter)
+            });
+        });
+
+        // Team Card Hover Effect
+        document.querySelectorAll('.member-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                gsap.to(card.querySelector('.card-front'), {
+                    rotationY: 180,
+                    duration: 0.6
+                });
+                gsap.to(card.querySelector('.card-back'), {
+                    rotationY: 0,
+                    duration: 0.6
+                });
+            });
+
+            card.addEventListener('mouseleave', () => {
+                gsap.to(card.querySelector('.card-front'), {
+                    rotationY: 0,
+                    duration: 0.6
+                });
+                gsap.to(card.querySelector('.card-back'), {
+                    rotationY: -180,
+                    duration: 0.6
                 });
             });
         });
