@@ -15,40 +15,30 @@ document.addEventListener('DOMContentLoaded', function() {
     // Store the original body content
     const bodyContent = document.body.innerHTML;
     
-    // Function to convert Eastern time to user's local time
-    function convertEasternToLocal() {
-        // Target time: 7:30 PM Eastern Time (19:30)
+    // Function to get target time in Eastern Time
+    function getTargetTime() {
         const now = new Date();
         
-        // Create date object for 7:30 PM Eastern Time today
-        const easternTime = new Date();
-        easternTime.setDate(easternTime.getDate() + 1); // Set to tomorrow to ensure countdown is visible
+        // Create target date object for today at 7:30 PM ET
+        const target = new Date();
+        const currentHour = now.getHours();
+        const currentMinutes = now.getMinutes();
         
-        // Adjust for Daylight Saving Time
-        const isEDT = isDaylightSavingTime(now);
+        // Set the target time to 19:30 (7:30 PM)
+        target.setHours(19, 30, 0, 0);
         
-        if (isEDT) {
-            easternTime.setUTCHours(23, 30, 0, 0); // 7:30 PM EDT is 23:30 UTC
-        } else {
-            easternTime.setUTCHours(0, 30, 0, 0); // 7:30 PM EST is 00:30 UTC (next day)
+        // If current time is past 7:30 PM ET, set target to tomorrow
+        if (currentHour > 19 || (currentHour === 19 && currentMinutes >= 30)) {
+            target.setDate(target.getDate() + 1);
         }
         
-        return easternTime;
-    }
-    
-    // Helper function to check if date is in Daylight Saving Time
-    function isDaylightSavingTime(date) {
-        const jan = new Date(date.getFullYear(), 0, 1);
-        const jul = new Date(date.getFullYear(), 6, 1);
-        const stdTimezoneOffset = Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
-        return date.getTimezoneOffset() < stdTimezoneOffset;
+        return target;
     }
     
     // Update the countdown timer
     function updateCountdown() {
         // Ensure overlay is still in the DOM - if not, reset the body content
         if (!document.body.contains(countdownOverlay)) {
-            // If the overlay was removed, reload the page
             location.reload();
             return;
         }
@@ -57,12 +47,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const overlayStyle = window.getComputedStyle(countdownOverlay);
         if (overlayStyle.display === 'none' || overlayStyle.visibility === 'hidden' || 
             overlayStyle.opacity === '0' || parseFloat(overlayStyle.opacity) < 0.1) {
-            // If the overlay was hidden, reload the page
             location.reload();
             return;
         }
         
-        const targetTime = convertEasternToLocal();
+        const targetTime = getTargetTime();
         const now = new Date();
         const timeLeft = targetTime - now;
         
@@ -73,6 +62,13 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Display the time
         countdownTimer.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        
+        // If countdown is finished, remove overlay
+        if (timeLeft <= 0) {
+            countdownOverlay.style.display = 'none';
+            document.body.classList.remove('countdown-active');
+            return;
+        }
         
         // Continue updating
         setTimeout(updateCountdown, 1000);
