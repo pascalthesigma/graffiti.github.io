@@ -58,7 +58,10 @@
     box-sizing: border-box;
 }
 
-html {
+html, body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
     scroll-behavior: smooth;
     font-size: 100%;
 }
@@ -69,6 +72,7 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     background-color: var(--bg-light);
+    flex: 1;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -90,7 +94,7 @@ h2 {
 }
 
 h2 span {
-    color: var(--primary);
+    color: var (--primary);
 }
 
 h3 {
@@ -206,7 +210,7 @@ section {
 
 .text-btn:hover {
     border-bottom: 2px solid var(--primary);
-    color: var(--primary-dark);
+    color: var (--primary-dark);
 }
 
 .text-btn i {
@@ -675,7 +679,7 @@ nav ul li a.disabled::after {
 
 .join-content p {
     font-size: 1.2rem;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var (--spacing-md);
 }
 
 /* === SOCIAL CONNECT SECTION === */
@@ -740,6 +744,7 @@ footer {
     background-color: var(--bg-dark);
     color: var(--text-light);
     padding: var(--spacing-lg) 0 var(--spacing-md);
+    margin-top: auto; /* Push footer to bottom of content */
 }
 
 .footer-grid {
@@ -1369,4 +1374,172 @@ footer {
 
 .faq-section {
     padding-top: var(--spacing-md); /* Reduce top padding */
+}
+
+/* Discord Members Section */
+.discord-members {
+    background: var(--gradient-hero); /* Using the same gradient as hero section */
+    color: white;
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.discord-members::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.member-count {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-lg) 0;
+    position: relative;
+    z-index: 2;
+}
+
+.count-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: var(--heading-font);
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+}
+
+.count-number {
+    font-size: 7rem; /* Increased from 5rem */
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                text-shadow 0.4s ease;
+    transform-origin: center center;
+    display: block;
+    width: 100%;
+}
+
+.count-label {
+    font-size: 3.5rem; /* Increased from 2.5rem */
+    color: #00ffbb;
+    text-shadow: 0 0 10px rgba(0, 255, 187, 0.5);
+    transition: transform 0.4s ease;
+    display: block;
+    width: 100%;
+}
+
+/* Remove the animate-pop class styles since we're using inline styles now */
+/* .animate-pop .count-number {
+    transform: scale(1.1) rotate(1deg);
+    text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.4);
+} */
+
+.discord-members .btn {
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+    font-size: 1.2rem; /* Slightly larger button text */
+    padding: 1rem 2rem; /* Larger button padding */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .count-number {
+        font-size: 5rem;
+    }
+    
+    .count-label {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .count-number {
+        font-size: 4rem;
+    }
+    
+    .count-label {
+        font-size: 2rem;
+    }
+}
+
+/* YouTube Videos Showcase */
+.youtube-showcase {
+    background-color: var(--bg-light);
+    padding: var(--spacing-xl) 0;
+}
+
+.youtube-showcase h2 {
+    margin-bottom: var(--spacing-lg);
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.video-item {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.video-item:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.view-more-container {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .count-text {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .count-number {
+        font-size: 3rem;
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+    
+    .count-label {
+        font-size: 1.5rem;
+    }
+    
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
 }
