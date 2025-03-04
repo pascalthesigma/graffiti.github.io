@@ -7,11 +7,11 @@
 /* === BASE STYLES === */
 :root {
     /* Primary Color Palette */
-    --primary: #ff6b6b;
-    --primary-dark: #ee5253;
-    --secondary: #5f27cd;
-    --secondary-dark: #4834d4;
-    --accent: #00d2d3;
+    --primary: #7289DA;  /* Discord-inspired color */
+    --primary-dark: #4E5D94;
+    --secondary: #2c2f33;
+    --secondary-dark: #23272A;
+    --accent: #99AAB5;
     --text-dark: #2f3640;
     --text-light: #f5f6fa;
     --bg-light: #f8f9fa;
@@ -45,6 +45,11 @@
     --transition-fast: 0.2s ease;
     --transition-normal: 0.3s ease;
     --transition-slow: 0.5s ease;
+
+    /* Gradients and Animations */
+    --gradient-primary: linear-gradient(135deg, #ff6b6b 0%, #ee5253 100%);
+    --gradient-hero: linear-gradient(135deg, #23272A 0%, #4E5D94 100%);
+    --animation-speed: 0.3s;
 }
 
 * {
@@ -143,6 +148,29 @@ section {
     font-family: var(--body-font);
 }
 
+.primary-btn, .secondary-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.primary-btn::before, .secondary-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.primary-btn:hover::before, .secondary-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
 .primary-btn {
     background-color: var(--primary);
     color: white;
@@ -228,7 +256,11 @@ header .container {
 
 .logo img {
     height: 50px;
-    transition: height var(--transition-normal);
+    transition: height var(--transition-normal), transform var(--animation-speed) ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05) rotate(-5deg);
 }
 
 header.scrolled .logo img {
@@ -250,6 +282,7 @@ nav ul li a {
     font-weight: 500;
     position: relative;
     padding: 0.5rem 0;
+    transition: color 0.3s ease;
 }
 
 nav ul li a::after {
@@ -261,6 +294,24 @@ nav ul li a::after {
     height: 2px;
     background-color: var(--primary);
     transition: width var(--transition-normal);
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 nav ul li a:hover::after,
@@ -289,7 +340,7 @@ nav ul li a.active {
 
 /* === HERO SECTION === */
 .hero {
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    background: var(--gradient-hero);
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -310,6 +361,16 @@ nav ul li a.active {
     z-index: 1;
 }
 
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to right bottom, transparent 49%, var(--bg-light) 50%);
+}
+
 .hero .container {
     position: relative;
     z-index: 2;
@@ -318,6 +379,7 @@ nav ul li a.active {
 .hero-content {
     max-width: 700px;
     color: white;
+    animation: slideUp 1s ease forwards;
 }
 
 .hero-content h1 {
@@ -336,6 +398,17 @@ nav ul li a.active {
     font-size: 1.25rem;
     margin-bottom: var(--spacing-md);
     max-width: 600px;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* === ABOUT PREVIEW SECTION === */
@@ -408,16 +481,17 @@ nav ul li a.active {
     border-radius: var(--radius-md);
     padding: var(--spacing-md);
     text-align: center;
-    transition: transform var(--transition-normal), background-color var(--transition-normal);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
     box-shadow: var(--shadow-sm);
+    backface-visibility: hidden;
 }
 
 .member-card:hover {
     transform: translateY(-10px);
     background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
 .member-img {
@@ -891,5 +965,383 @@ footer {
     .member-img {
         width: 100px;
         height: 100px;
+    }
+}
+
+/* Card hover effects */
+.feature-card, .member-card, .testimonial-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backface-visibility: hidden;
+}
+
+.feature-card:hover, .member-card:hover, .testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* Team section enhancements */
+.team-member {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    background: white;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.team-member img {
+    transition: transform 0.5s ease;
+}
+
+.team-member:hover img {
+    transform: scale(1.05);
+}
+
+.team-member .member-info {
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover .member-info {
+    transform: translateY(0);
+}
+
+/* Page transitions */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Team Section Styles */
+.team-section {
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #1a1a2e 100%);
+    color: var(--text-light);
+    padding: var(--spacing-xl) 0;
+}
+
+.team-section h2 {
+    color: white;
+    margin-bottom: var(--spacing-lg);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.team-member {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 1;
+    cursor: pointer;
+    background: var(--gradient-primary);
+}
+
+.team-img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.team-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.team-member:hover .team-img img {
+    transform: scale(1.1);
+}
+
+.member-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 1.5rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+.team-member:hover .member-info {
+    transform: translateY(0);
+}
+
+.member-info h3 {
+    color: white;
+    margin: 0;
+    font-size: 1.5rem;
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all 0.4s ease 0.2s;
+}
+
+.member-info .role {
+    color: var(--primary);
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.4s ease 0.3s;
+}
+
+.team-member:hover .member-info h3,
+.team-member:hover .member-info .role {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Enhanced Story Section */
+.about-preview {
+    position: relative;
+    overflow: hidden;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.about-text {
+    position: relative;
+}
+
+.about-text::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--gradient-primary);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.6s ease;
+}
+
+.about-text.visible::before {
+    transform: scaleY(1);
+}
+
+.about-image {
+    position: relative;
+}
+
+.about-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.about-image:hover::after {
+    opacity: 0.2;
+}
+
+/* Enhanced Team Section Styles */
+.about-team {
+    padding: var(--spacing-xl) 0;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #1a1a2e 100%);
+    color: var(--text-light);
+}
+
+.about-team h2 {
+    color: white;
+}
+
+.staff-heading {
+    margin-top: var(--spacing-xl);
+}
+
+.team-member.leadership {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.team-member.leadership:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.team-member.leadership .team-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    border: 3px solid var(--primary);
+    overflow: hidden;
+}
+
+.team-member.leadership .team-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.team-member.leadership:hover .team-img img {
+    transform: scale(1.1);
+}
+
+.team-member.leadership h3 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.team-member.leadership .team-role {
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.team-member.leadership .team-bio {
+    color: var(--gray-light);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.team-social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.team-social a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    transition: all 0.3s ease;
+}
+
+.team-social a:hover {
+    background: var(--primary);
+    transform: translateY(-3px);
+}
+
+/* Staff Grid Styles */
+.staff-grid {
+    margin-top: 2rem;
+}
+
+.team-member.staff {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    aspect-ratio: 1;
+    position: relative;
+    cursor: pointer;
+}
+
+.team-member.staff .team-img {
+    width: 100%;
+    height: 100%;
+}
+
+.team-member.staff .team-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.team-member.staff:hover .team-img img {
+    transform: scale(1.1);
+}
+
+.team-member.staff h3,
+.team-member.staff .team-role {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 0.5rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+}
+
+.team-member.staff h3 {
+    bottom: 2rem;
+    color: white;
+    font-size: 1.2rem;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.team-member.staff .team-role {
+    bottom: 0;
+    color: var(--primary);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease 0.1s;
+}
+
+.team-member.staff:hover h3,
+.team-member.staff:hover .team-role {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    
+    .about-text::before {
+        left: -1rem;
+    }
+    
+    .team-member.leadership {
+        padding: 1.5rem;
+    }
+    
+    .team-member.leadership .team-img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .staff-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
 }

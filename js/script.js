@@ -4,17 +4,19 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize header scroll effect
+    // Initialize all existing functionality
     initHeaderScroll();
-    
-    // Initialize mobile navigation
     initMobileNav();
-    
-    // Initialize members carousel
     initMembersCarousel();
-    
-    // Initialize newsletter form
     initNewsletterForm();
+    
+    // Add new animation triggers
+    initAnimations();
+    
+    // Add new enhancements
+    initSmoothReveal();
+    initHeroParallax();
+    initTeamHover();
 });
 
 /**
@@ -189,3 +191,152 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+/**
+ * Initialize animations for elements
+ */
+function initAnimations() {
+    // Add fade-in class to elements that should animate
+    const animatedElements = [
+        '.about-content',
+        '.feature-card',
+        '.member-card',
+        '.testimonial-card',
+        '.team-member',
+        '.value-card'
+    ];
+    
+    animatedElements.forEach(selector => {
+        document.querySelectorAll(selector).forEach(el => {
+            el.classList.add('fade-in');
+        });
+    });
+    
+    // Check for elements in view on load
+    checkElementsInView();
+    
+    // Check for elements in view on scroll
+    window.addEventListener('scroll', checkElementsInView);
+}
+
+/**
+ * Check if elements are in viewport and add visible class
+ */
+function checkElementsInView() {
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const triggerBottom = window.innerHeight * 0.8;
+    
+    fadeElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        
+        if (elementTop < triggerBottom) {
+            element.classList.add('visible');
+        }
+    });
+}
+
+/**
+ * Handle member card hover effects
+ */
+function initMemberHoverEffects() {
+    const memberCards = document.querySelectorAll('.member-card');
+    
+    memberCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-10px)';
+            card.style.boxShadow = 'var(--shadow-lg)';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
+            card.style.boxShadow = 'var(--shadow-sm)';
+        });
+    });
+}
+
+// Initialize member hover effects
+document.addEventListener('DOMContentLoaded', initMemberHoverEffects);
+
+/**
+ * Smooth reveal animation for sections
+ */
+function initSmoothReveal() {
+    const sections = document.querySelectorAll('section');
+    const options = {
+        root: null,
+        threshold: 0.1,
+        rootMargin: '-50px'
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('reveal');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, options);
+
+    sections.forEach(section => {
+        section.classList.add('reveal-section');
+        observer.observe(section);
+    });
+}
+
+/**
+ * Parallax effect for hero section
+ */
+function initHeroParallax() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+    });
+}
+
+/**
+ * Enhanced team member hover effects
+ */
+function initTeamHover() {
+    const teamMembers = document.querySelectorAll('.team-member');
+    
+    teamMembers.forEach(member => {
+        member.addEventListener('mouseenter', (e) => {
+            const info = member.querySelector('.member-info');
+            const img = member.querySelector('img');
+            
+            gsap.to(info, {
+                y: 0,
+                opacity: 1,
+                duration: 0.4,
+                ease: 'power2.out'
+            });
+            
+            gsap.to(img, {
+                scale: 1.1,
+                duration: 0.6,
+                ease: 'power2.out'
+            });
+        });
+        
+        member.addEventListener('mouseleave', (e) => {
+            const info = member.querySelector('.member-info');
+            const img = member.querySelector('img');
+            
+            gsap.to(info, {
+                y: 100,
+                opacity: 0,
+                duration: 0.4,
+                ease: 'power2.in'
+            });
+            
+            gsap.to(img, {
+                scale: 1,
+                duration: 0.6,
+                ease: 'power2.in'
+            });
+        });
+    });
+}

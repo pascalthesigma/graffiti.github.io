@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
     <header>
@@ -314,9 +316,168 @@
         </div>
     </section>
 
+    <section class="team-section fade-in">
+        <div class="container">
+            <h2>Our <span>Team</span></h2>
+            <div class="team-grid">
+                <!-- Leadership -->
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="images/team/kooper.webp" alt="Kooper">
+                    </div>
+                    <div class="member-info">
+                        <h3>Kooper</h3>
+                        <p class="role">Owner</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="images/team/garrison.webp" alt="Garrison">
+                    </div>
+                    <div class="member-info">
+                        <h3>Garrison</h3>
+                        <p class="role">Co-Owner</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="images/team/pascal.webp" alt="Pascal">
+                    </div>
+                    <div class="member-info">
+                        <h3>Pascal</h3>
+                        <p class="role">Head Staff</p>
+                    </div>
+                </div>
+                
+                <!-- Staff Members -->
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="images/team/javaa.webp" alt="Javaa">
+                    </div>
+                    <div class="member-info">
+                        <h3>Javaa</h3>
+                        <p class="role">Staff</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="images/team/giddygt.webp" alt="GIDDYGT">
+                    </div>
+                    <div class="member-info">
+                        <h3>GIDDYGT</h3>
+                        <p class="role">Staff</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="images/team/harveygt.webp" alt="HarveyGT">
+                    </div>
+                    <div class="member-info">
+                        <h3>HarveyGT</h3>
+                        <p class="role">Staff</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="images/team/maybe_gtag.webp" alt="Maybe_gtag">
+                    </div>
+                    <div class="member-info">
+                        <h3>Maybe_gtag</h3>
+                        <p class="role">Staff</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="images/team/mvprince.webp" alt="MVPRINCE">
+                    </div>
+                    <div class="member-info">
+                        <h3>MVPRINCE</h3>
+                        <p class="role">Staff</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="images/team/nicebot.webp" alt="Nicebot">
+                    </div>
+                    <div class="member-info">
+                        <h3>Nicebot</h3>
+                        <p class="role">Staff</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="images/team/lyairr.webp" alt="Lyairr">
+                    </div>
+                    <div class="member-info">
+                        <h3>Lyairr</h3>
+                        <p class="role">Staff</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-preview">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our <span>Story</span></h2>
+                    <p>The Graffiti Program was born out of a vision to create a more inclusive and fair platform for content creators. When we noticed that Gorilla Tag's Finger Painter program felt too restrictive and seemed to overlook smaller creators, we decided to take action.</p>
+                    <p>Two months ago, we established this program with a clear mission: to give deserving smaller creators the spotlight they merit. We believe that great content deserves recognition, regardless of follower count.</p>
+                    <p>Our community-driven approach ensures that talent, creativity, and dedication are the primary factors in our selection process, creating opportunities for creators who might otherwise be overlooked.</p>
+                    <a href="about.html" class="btn text-btn">Learn More About Us <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="about-image fade-in">
+                    <img src="images/graffiti.webp" alt="Graffiti Program Journey">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-column">
                     <h3>Graffiti Program</h3>
                     <p>A platform for creative expression within Gorilla AG</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="members.html">Members</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="reviews.html">Reviews</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@graffitiprogram.com</p>
+                    <p>Phone: +1 234 567 890</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
