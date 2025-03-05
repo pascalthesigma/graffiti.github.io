@@ -871,6 +871,81 @@ footer {
     }
 }
 
+/* Update mobile breakpoints and adjustments */
+@media (max-width: 768px) {
+    /* Improve text readability on mobile */
+    h1 {
+        font-size: 2.2rem;
+        line-height: 1.3;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    h3 {
+        font-size: 1.4rem;
+    }
+    
+    p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    /* Adjust contact info cards for better mobile viewing */
+    .info-card {
+        padding: var(--spacing-md);
+        height: auto;
+        min-height: 200px;
+    }
+
+    .info-card p {
+        word-break: break-word; /* Prevent long text from overflowing */
+        font-size: 0.9rem;
+    }
+
+    /* Improve mobile navigation */
+    nav.active ul {
+        height: auto;
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+    }
+
+    /* Adjust padding for better spacing on mobile */
+    section {
+        padding: var(--spacing-md) 0;
+    }
+
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    /* Make sure content doesn't stick under fixed header */
+    .page-banner {
+        padding-top: 100px;
+    }
+
+    /* Ensure video embeds are visible */
+    .video-container {
+        margin-bottom: var(--spacing-sm);
+    }
+
+    /* Improve member cards visibility */
+    .member-card {
+        padding: var(--spacing-sm);
+        min-height: 150px;
+    }
+
+    .member-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .member-card p {
+        font-size: 0.9rem;
+    }
+}
+
 @media (max-width: 576px) {
     section {
         padding: var(--spacing-md) 0;
@@ -904,6 +979,96 @@ footer {
     .member-img {
         width: 100px;
         height: 100px;
+    }
+}
+
+/* Additional small screen adjustments */
+@media (max-width: 480px) {
+    html {
+        font-size: 14px; /* Slightly reduce base font size */
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    /* Improve tap targets */
+    .btn {
+        padding: 0.8rem 1.5rem;
+        min-width: 120px;
+        margin: 5px;
+    }
+
+    /* Make footer more compact */
+    .footer-grid {
+        gap: var(--spacing-sm);
+    }
+
+    .footer-column {
+        padding: var(--spacing-xs);
+    }
+
+    /* Ensure contact information is readable */
+    .info-card {
+        margin: 0 var(--spacing-xs);
+    }
+
+    .info-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .info-icon i {
+        font-size: 1.5rem;
+    }
+
+    /* Adjust spacing for dense content */
+    .value-card {
+        padding: var(--spacing-sm);
+        margin-bottom: var(--spacing-sm);
+    }
+
+    /* Ensure process list is readable */
+    .process-list li {
+        margin-bottom: var(--spacing-md);
+    }
+
+    .process-detail h3 {
+        font-size: 1.2rem;
+    }
+
+    /* Improve stats visibility */
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+    }
+}
+
+/* Fix touch interactions on mobile */
+@media (hover: none) {
+    .btn:active {
+        transform: translateY(0);
+    }
+
+    .info-card:active {
+        transform: none;
+    }
+
+    /* Improve mobile tap targets */
+    nav ul li a,
+    .footer-column ul li a {
+        padding: 12px 0;
+    }
+
+    .social-btn {
+        padding: var(--spacing-md);
     }
 }
 
@@ -2242,7 +2407,7 @@ footer {
 .mission-values {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-lg);
+    gap: var (--spacing-lg);
     margin-top: var (--spacing-lg);
 }
 
@@ -2286,6 +2451,10 @@ footer {
     text-align: center;
     box-shadow: var(--shadow-md);
     transition: transform var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .info-card:hover {
@@ -2316,11 +2485,15 @@ footer {
 .info-card p {
     color: var(--primary);
     font-weight: 500;
+    text-align: center;
     margin-bottom: var(--spacing-sm);
 }
 
 .info-card .text-btn {
     margin-top: var(--spacing-sm);
+    text-align: center;
+    margin: 0 auto;
+    display: block;
 }
 
 @media (max-width: 768px) {
