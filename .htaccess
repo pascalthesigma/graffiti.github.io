@@ -1,13 +1,13 @@
 RewriteEngine On
 
-# Remove .html extension
+# Force remove .html from URLs
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.]+)\.html\ HTTP
+RewriteRule ^([^.]+)\.html$ https://graffitiprogram.com/$1 [R=301,L]
+
+# Internally map clean URLs to .html files
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^([^\.]+)$ $1.html [NC,L]
-
-# Redirect requests with .html to clean URLs
-RewriteCond %{THE_REQUEST} \.html
-RewriteRule ^(.*)\.html$ /$1 [R=301,L]
+RewriteRule ^([^/]+)/?$ $1.html [L]
 
 # Redirect domain.com/index to domain.com
 RewriteRule ^index$ / [R=301,L]
