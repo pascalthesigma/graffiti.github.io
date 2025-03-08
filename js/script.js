@@ -70,6 +70,12 @@ function initMobileNav() {
             link.classList.add('active');
         }
     });
+    
+    // Remove the dynamic addition of the Spotlight link
+    // const navList = document.querySelector('nav ul');
+    // const spotlightLink = document.createElement('li');
+    // spotlightLink.innerHTML = '<a href="spotlight.html">Spotlight</a>';
+    // navList.appendChild(spotlightLink);
 }
 
 /**
