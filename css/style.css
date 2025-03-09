@@ -80,7 +80,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: var(--spacing-sm);
-    color: var(--text-dark);
+    color: var (--text-dark);
 }
 
 h1 {
@@ -102,7 +102,7 @@ h3 {
 }
 
 p {
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var (--spacing-sm);
 }
 
 a {
@@ -737,7 +737,7 @@ footer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: var (--spacing-xs);
 }
 
 .footer-column h3 {
@@ -2293,8 +2293,8 @@ footer {
 .mission-values {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-md);
+    gap: var (--spacing-md);
+    margin-top: var (--spacing-md);
 }
 
 .value-card {
@@ -2400,7 +2400,7 @@ footer {
 .mission-text p {
     font-size: 1.1rem;
     line-height: 1.8;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var (--spacing-sm);
     color: var(--text-dark);
 }
 
@@ -2510,7 +2510,7 @@ footer {
 
 /* Members List Styles */
 .members-list {
-    padding: var(--spacing-xl) 0;
+    padding: 80px 0 var(--spacing-xl);
     background-color: var(--bg-light);
 }
 
@@ -2518,7 +2518,32 @@ footer {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
+    margin-top: 0;
+}
+
+/* Update member card animations */
+.members-grid .member-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInCard 0.6s ease-out forwards;
+}
+
+@keyframes fadeInCard {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Reduce animation delay between cards */
+.members-grid .member-card:nth-child(n) {
+    animation-delay: calc(0.1s * var(--card-order, 0));
+}
+
+/* Only animate cards when they come into view */
+.member-card.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .member-card {
@@ -2585,3 +2610,121 @@ footer {
         font-size: 1.1rem;
     }
 }
+
+.member-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    object-fit: cover;
+    border: 3px solid var(--primary);
+}
+
+/* Enhanced Member Cards */
+.fade-cards {
+    animation: fadeIn 1s ease-out;
+}
+
+.member-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-md);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.member-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.member-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+}
+
+.member-card:hover::before {
+    left: 100%;
+}
+
+.member-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    object-fit: cover;
+    border: 4px solid var(--primary);
+    transition: all 0.4s ease;
+    transform-origin: center;
+}
+
+.member-card:hover .member-image {
+    transform: scale(1.1);
+    border-color: var(--primary-dark);
+}
+
+.member-social a {
+    opacity: 0.8;
+    transform: translateY(5px);
+    transition: all 0.3s ease;
+}
+
+.member-card:hover .member-social a {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger animation for cards */
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.members-grid .member-card {
+    animation: fadeInUp 0.6s ease-out backwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add stagger delay to cards */
+.members-grid .member-card:nth-child(1) { animation-delay: 0.1s; }
+.members-grid .member-card:nth-child(2) { animation-delay: 0.2s; }
+.members-grid .member-card:nth-child(3) { animation-delay: 0.3s; }
+.members-grid .member-card:nth-child(4) { animation-delay: 0.4s; }
+/* ...continue for more cards... */

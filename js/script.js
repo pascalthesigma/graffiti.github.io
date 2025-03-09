@@ -17,6 +17,28 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothReveal();
     initHeroParallax();
     initTeamHover();
+    
+    // Add intersection observer for member cards
+    const memberCards = document.querySelectorAll('.member-card');
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '50px'
+    };
+
+    const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.style.setProperty('--card-order', entry.target.dataset.order);
+                entry.target.classList.add('visible');
+                cardObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    memberCards.forEach((card, index) => {
+        card.dataset.order = index;
+        cardObserver.observe(card);
+    });
 });
 
 /**
